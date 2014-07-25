@@ -50,6 +50,9 @@
     <ClCompile Include="GeneratedFiles\qrc_wetterstation.cpp">
       <Filter>Generierte Dateien</Filter>
     </ClCompile>
+    <ClCompile Include="usbcom.cpp">
+      <Filter>Source Dateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="wetterstation.h">
@@ -65,6 +68,9 @@
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_wetterstation.h">
       <Filter>Generierte Dateien</Filter>
+    </ClInclude>
+    <ClInclude Include="usbcom.h">
+      <Filter>Header Dateien</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

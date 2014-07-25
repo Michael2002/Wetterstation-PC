@@ -16,6 +16,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
@@ -25,9 +26,10 @@ QT_BEGIN_NAMESPACE
 class Ui_WetterstationClass
 {
 public:
+    QWidget *centralWidget;
+    QPlainTextEdit *_plainTextEdit;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
-    QWidget *centralWidget;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *WetterstationClass)
@@ -35,15 +37,19 @@ public:
         if (WetterstationClass->objectName().isEmpty())
             WetterstationClass->setObjectName(QStringLiteral("WetterstationClass"));
         WetterstationClass->resize(600, 400);
+        centralWidget = new QWidget(WetterstationClass);
+        centralWidget->setObjectName(QStringLiteral("centralWidget"));
+        _plainTextEdit = new QPlainTextEdit(centralWidget);
+        _plainTextEdit->setObjectName(QStringLiteral("_plainTextEdit"));
+        _plainTextEdit->setGeometry(QRect(310, 10, 171, 291));
+        WetterstationClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(WetterstationClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
+        menuBar->setGeometry(QRect(0, 0, 600, 21));
         WetterstationClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(WetterstationClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-        WetterstationClass->addToolBar(mainToolBar);
-        centralWidget = new QWidget(WetterstationClass);
-        centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        WetterstationClass->setCentralWidget(centralWidget);
+        WetterstationClass->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(WetterstationClass);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         WetterstationClass->setStatusBar(statusBar);
